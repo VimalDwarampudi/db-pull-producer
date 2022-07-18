@@ -28,8 +28,8 @@ public class UserEntity {
 		return categoryCode;
 	}
 
-	public void setCategoryCode(String categoryCode;{
-		this.categoryCode; = categoryCode;
+	public void setCategoryCode(String categoryCode){
+		this.categoryCode = categoryCode;
 	}
 
 
