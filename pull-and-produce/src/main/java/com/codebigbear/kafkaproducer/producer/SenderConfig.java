@@ -1,7 +1,7 @@
 package com.codebigbear.kafkaproducer.producer;
 
 
-import com.codebigbear.avro.Review;
+import com.codebigbear.avro.Email;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -40,12 +40,12 @@ public class SenderConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Review> producerFactory() {
+    public ProducerFactory<String, Email> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, Review> kafkaTemplate() {
+    public KafkaTemplate<String, Email> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
