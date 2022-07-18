@@ -1,14 +1,15 @@
 package com.codebigbear.kafkaproducer;
 
-import com.codebigbear.avro.Review;
+import com.codebigbear.avro.Email;
 import com.codebigbear.kafkaproducer.producer.Sender;
-import org.joda.time.DateTime;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.EnableCaching
 
 @SpringBootApplication
+@EnableCaching
 public class SpringKafkaProducer implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class SpringKafkaProducer implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
 
-        Review review1 = new Review();
+        /*Review review1 = new Review();
         review1.setId(Long.valueOf(5952700));
         review1.setTitle("kafka");
         review1.setCreated(DateTime.now());
@@ -39,7 +40,7 @@ public class SpringKafkaProducer implements CommandLineRunner {
 
         sender.send(review1);
         sender.send(review2);
-        sender.send(review3);
+        sender.send(review3);*/
 
 
     }
