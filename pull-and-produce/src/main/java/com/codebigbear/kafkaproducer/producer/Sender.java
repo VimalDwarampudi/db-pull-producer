@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
-import com.codebigbear.avro.Review;
+import com.codebigbear.avro.Email;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -20,11 +20,11 @@ public class Sender {
     private String sendTopic;
 
     @Autowired
-    private KafkaTemplate<String, Review> kafkaTemplate;
+    private KafkaTemplate<String, Email> kafkaTemplate;
 
-    public void send(Review review) {
+    public void send(Email review) {
 
-        Message<Review> message = MessageBuilder
+        Message<Email> message = MessageBuilder
                 .withPayload(review)
                 .setHeader(KafkaHeaders.TOPIC, sendTopic)
                 .setHeader(KafkaHeaders.MESSAGE_KEY, "999")
