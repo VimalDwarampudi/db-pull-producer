@@ -25,7 +25,7 @@ public class EmailController
     @GetMapping
     public ResponseEntity<List<UserEntity>> getAlluserEmails(
                         @RequestHeader(name="customerCategoryCode") String CategoryCode,
-                      @RequestHeader(name="campaignTemplateId") Integer templateId,
+                      @RequestHeader(name="campaignTemplateId") String templateId,
                         @RequestParam(defaultValue = "0") Integer pageNo)
     {
         List<UserEntity> list = service.getAllUsers(CategoryCode, pageNo, 5000);
@@ -35,7 +35,7 @@ public class EmailController
   email.setTemplateId(templateId);
   sender.send(email);
 });
-        return new ResponseEntity<List<EmployeeEntity>>(list, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<List<UserEntity>>(list, new HttpHeaders(), HttpStatus.OK);
     }
   
 }
